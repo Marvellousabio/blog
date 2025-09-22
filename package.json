@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node app.js",
-    "build": "tsc",
+    "build": "echo \"No build step\"",
     "start": "nodemon app.js"
   },
   "devDependencies": {
