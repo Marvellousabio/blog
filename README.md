@@ -1,0 +1,1 @@
+socialhub is a blogging platform designed exclusively for students for sharing their academic journey, offering study tips, exploring career paths, or simply expressing their thoughts. Our mission is to empower students to voice their ideas, connect with peers, and grow through creativity and collaboration.
