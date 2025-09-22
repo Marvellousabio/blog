@@ -5,11 +5,11 @@
   "license": "ISC",
   "author": "",
   "type": "commonjs",
-  "main": "First.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node app.js",
-    "build": "next build",
+    "build": "tsc",
     "start": "nodemon app.js"
   },
   "devDependencies": {
