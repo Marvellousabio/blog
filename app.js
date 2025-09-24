@@ -8,9 +8,9 @@ const blogRoutes=require('./routes/blogRoute.js')
 const  app= express();
 //connect to mongo DB
 const dbuRI = process.env.DB_URI;
-const PORT = process.env.PORT || 3000;
+
 mongoose.connect(dbuRI)
-  .then((result) => app.listen(PORT,console.log(`Server running on port ${PORT}`)))
+  .then(() => console.log('Mongo DB connected '))
   .catch((err) => console.log('DB connection error:', err));
 
 app.set('view engine','ejs');
