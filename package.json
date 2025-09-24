@@ -8,9 +8,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node app.js",
+    "dev": "node server.js",
     "build": "echo \"No build step\"",
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "devDependencies": {
     "typescript": "^5.8.3"
