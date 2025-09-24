@@ -2,7 +2,7 @@ const express =require('express');
 const morgan=require('morgan');
 const mongoose = require('mongoose');
 require('dotenv').config();
-
+const methodOverride = require('method-override');
 const blogRoutes=require('./routes/blogRoute.js')
 
 const  app= express();
@@ -14,14 +14,9 @@ mongoose.connect(dbuRI)
   .catch((err) => console.log('DB connection error:', err));
 
 app.set('view engine','ejs');
-
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
-
-const methodOverride = require('method-override');
-
-// Middleware to override methods using query string (?_method=PUT)
 app.use(methodOverride('_method'));
 
 app.get('/',(req,res)=>{
@@ -29,11 +24,12 @@ app.get('/',(req,res)=>{
 });
 
 app.get('/about',(req,res)=>{
-    //res.send('<p>About Page<p>');
     res.render('about',{title:'About'});
 });
 app.use('/blogs',blogRoutes);
 //404 page
 app.use((req,res)=>{
-    res.status(404).render('404',{title:'404'})
-})
+    res.status(404).render('404',{title:'404'});
+});
+
+module.exports = app; 
