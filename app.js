@@ -8,7 +8,7 @@ const blogRoutes = require('./routes/blogRoute.js');
 const app = express();
 
 // connect to mongo DB
-connectDB
+connectDB();
 
 
 app.set('view engine', 'ejs');
