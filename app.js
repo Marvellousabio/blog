@@ -32,4 +32,8 @@ app.use((req,res)=>{
     res.status(404).render('404',{title:'404'});
 });
 
-module.exports = app; 
+app.get("/ping", (req, res) => {
+  res.send("pong"); 
+});
+
+module.exports = app;
