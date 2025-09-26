@@ -8,7 +8,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server.js",
+    "dev": "vercel dev",
     "build": "echo \"No build step\"",
     "start": "node api/index.js"
   },

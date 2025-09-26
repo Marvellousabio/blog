@@ -36,6 +36,6 @@ fs.readFile(path,(err,data)=>{
 })
 });
 
-server.listen(4000,'localhost',()=>{
-    console.log('listening for requests on port 4000')
+server.listen(3000,'localhost',()=>{
+    console.log('listening for requests on port 3000')
 })
