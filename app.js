@@ -8,16 +8,16 @@ const blogRoutes = require('./routes/blogRoute.js');
 const app = express();
 
 // connect to mongo DB
-const dbuRI = process.env.DB_URI;
-mongoose.connect(dbuRI)
-  .then(() => console.log('Mongo DB connected'))
-  .catch((err) => console.log('DB connection error:', err));
+//const dbuRI = process.env.DB_URI;
+//mongoose.connect(dbuRI)
+  //.then(() => console.log('Mongo DB connected'))
+  //.catch((err) => console.log('DB connection error:', err));
 
 const dbuRI = process.env.DB_URI;
 const port = process.env.PORT || 3000;
 const start = () => {
   try {
-    connectDB(process.env.dbuRI);
+    mongoose.connect(dbuRI);
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}.........`)
     );
