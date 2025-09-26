@@ -1,4 +1,4 @@
-const express = require('express');
+amconst express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 require('dotenv').config();
@@ -12,6 +12,21 @@ const dbuRI = process.env.DB_URI;
 mongoose.connect(dbuRI)
   .then(() => console.log('Mongo DB connected'))
   .catch((err) => console.log('DB connection error:', err));
+
+const dbuRI = process.env.DB_URI;
+const port = process.env.PORT || 3000;
+const start = () => {
+  try {
+    connectDB(process.env.dbuRI);
+    app.listen(port, () =>
+      console.log(`Server is listening on port ${port}.........`)
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+start();
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -37,5 +52,5 @@ app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
-// 🚀 Export Express app only
+
 module.exports = app;
