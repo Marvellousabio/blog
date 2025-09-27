@@ -37,5 +37,9 @@ app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
-// 🚀 Export Express app only
+
+app.listen(3000,'localhost',()=>{
+    console.log('listening for requests on port 3000')
+})
+
 module.exports = app;
