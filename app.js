@@ -1,16 +1,21 @@
 const express = require('express');
 const morgan = require('morgan');
-
+const mongoose = require('mongoose');
 require('dotenv').config();
 const methodOverride = require('method-override');
 const blogRoutes = require('./routes/blogRoute.js');
-const connectDB = require('./utils/db.js');
+
 
 const app = express();
 
 // connect to mongo DB
 
-connectDB();
+
+const dbuRI = process.env.DB_URI;
+mongoose.connect(dbuRI)
+  .then(() => console.log('Mongo DB connected'))
+  .catch((err) => console.log('DB connection error:', err));
+
 
 
 
@@ -41,8 +46,6 @@ app.get("/ping", (req, res) => {
 
 
 
-app.listen(3000,'localhost',()=>{
-    console.log('listening for requests on port 3000')
-})
+
 
 module.exports = app;
