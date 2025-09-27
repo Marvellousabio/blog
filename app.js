@@ -1,14 +1,17 @@
 const express = require('express');
 const morgan = require('morgan');
-const mongoose = require('mongoose');
+
 require('dotenv').config();
 const methodOverride = require('method-override');
 const blogRoutes = require('./routes/blogRoute.js');
+const connectDB = require('./utils/db.js');
 
 const app = express();
 
 // connect to mongo DB
+
 connectDB();
+
 
 
 app.set('view engine', 'ejs');
