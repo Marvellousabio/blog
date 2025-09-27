@@ -8,13 +8,12 @@ const blogRoutes = require('./routes/blogRoute.js');
 const app = express();
 
 // connect to mongo DB
-const dbuRI = process.env.DB_URI;
-mongoose.connect(dbuRI)
-  .then(() => console.log('Mongo DB connected'))
-  .catch((err) => console.log('DB connection error:', err));
+connectDB();
+
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(methodOverride('_method'));
@@ -36,6 +35,7 @@ app.use((req, res) => {
 app.get("/ping", (req, res) => {
   res.send("pong");
 });
+
 
 
 app.listen(3000,'localhost',()=>{
