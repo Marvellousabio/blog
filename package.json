@@ -10,12 +10,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server.js",
     "build": "npm install",
-   "start": "Vercel.dev"
+   "start": "node app.js"
   },
 "engines": {
     "node": "22.x",
     "build": "echo \"No build step\"",
-    "start": "node app.js"
+    
   },
   "devDependencies": {
     "typescript": "^5.8.3"
