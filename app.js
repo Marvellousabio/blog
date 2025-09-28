@@ -18,6 +18,7 @@ app.use(methodOverride('_method'));
 
 // connect to mongo DB
 const dbURI = process.env.DB_URI;
+const port = process.env.PORT || 3000;
 mongoose.connect(dbURI)
   .then(() => console.log('Mongo DB connected'))
   .catch((err) => console.log('DB connection error:', err));
@@ -37,7 +38,7 @@ app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
 
-app.listen(3000,'localhost',()=>{
-    console.log('listening for requests on port 3000')
+app.listen(port, 'localhost', () => {
+    console.log(`listening for requests on port ${port}`)
 })
 
