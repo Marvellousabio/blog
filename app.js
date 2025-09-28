@@ -1,22 +1,12 @@
+const mongoose = require('mongoose')
 const express = require('express');
 const morgan = require('morgan');
-const mongoose = require('mongoose');
 require('dotenv').config();
 const methodOverride = require('method-override');
 const blogRoutes = require('./routes/blogRoute.js');
 
 
 const app = express();
-
-// connect to mongo DB
-
-
-const dbuRI = process.env.DB_URI;
-mongoose.connect(dbuRI)
-  .then(() => console.log('Mongo DB connected'))
-  .catch((err) => console.log('DB connection error:', err));
-
-
 
 
 app.set('view engine', 'ejs');
@@ -25,6 +15,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(methodOverride('_method'));
+
+// connect to mongo DB
+const dbURI = process.env.DB_URI;
+mongoose.connect(dbURI)
+  .then(() => console.log('Mongo DB connected'))
+  .catch((err) => console.log('DB connection error:', err));
+
 
 app.get('/', (req, res) => {
   res.redirect('/blogs');
@@ -40,12 +37,7 @@ app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
 
-app.get("/ping", (req, res) => {
-  res.send("pong");
-});
+app.listen(3000,'localhost',()=>{
+    console.log('listening for requests on port 3000')
+})
 
-
-
-
-
-module.exports = app;
