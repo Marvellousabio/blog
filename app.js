@@ -15,6 +15,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(methodOverride('_method'));
+app.use('/fonts', express.static('fonts', {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.woff2')) {
+      res.setHeader('Content-Type', 'font/woff2');
+    }
+  }
+}));
 
 // connect to mongo DB
 const dbURI = process.env.DB_URI;

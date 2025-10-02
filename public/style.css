@@ -6,10 +6,10 @@
   --link-color: #1DAEFF;
   --link-hover-color: #0077cc;
   --nav-bg-color: #1DAEFF;
-  --nav-text-color: #ffffff;
+  --nav-text-color: #2e2e2e;
   --nav-link-hover-bg: #ffffff;
   --nav-active-hover-color: rgb(12, 76, 124);
-  --nav-active-hover-bg: #FF4D4D;
+  --nav-active-hover-bg: #dbd807;
   --nav-active-hover-color: #FFFFFF;
   --content-bg: transparent;
   --content-text-color: #2e2e2e;
@@ -34,7 +34,7 @@
   --nav-text-color: #ffffff;
   --nav-link-hover-bg: #2a2a2a;
   --nav-link-hover-color: #66ccff;
-  --nav-active-hover-bg: #FF6666; 
+  --nav-active-hover-bg: #dbd807; 
   --nav-active-hover-color: #FFFFFF;
   --content-bg: transparent;
   --content-text-color: #e4e4e4;
@@ -55,7 +55,11 @@
   margin: 0;
   padding: 0;
 }
-
+html, body,nav {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
@@ -90,9 +94,13 @@ nav {
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
   margin-top: 0;
-  top: 0;
+ 
   
 }
+nav > * {
+  margin-top: 0;
+}
+
 .site-nav{
   margin: 1rem 0;
 }

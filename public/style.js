@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const links = document.querySelectorAll('nav ul li a');
-  let currentPath = window.location.pathname;
-  console.log(currentPath) 
+  let currentPath = window.location.pathname; 
 
   links.forEach(link => {
     let linkPath = link.getAttribute('href');
-    console.log(linkPath)
+    
     if (linkPath ===currentPath){link.classList.add("active");}
 
   });
